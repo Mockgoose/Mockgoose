@@ -1,7 +1,7 @@
 {
   "name": "mockgoose",
   "description": "Mockgoose is an in memory database mock to allow for testing of applications that rely on Mongoose.",
-  "version": "6.0.4",
+  "version": "6.0.6",
   "author": {
     "name": "Anthony McCormick",
     "email": "anthony.mccormick AT gmail.com"
@@ -46,8 +46,8 @@
   "bugs": {
     "url": "https://github.com/mccormicka/Mockgoose/issues"
   },
-  "repository": "mccormicka/Mockgoose",
-  "homepage": "https://github.com/mccormicka/Mockgoose",
+  "repository": "Mockgoose/Mockgoose",
+  "homepage": "https://github.com/Mockgoose/Mockgoose",
   "readmeFilename": "README.md",
   "license": "MIT"
 }
