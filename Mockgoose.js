@@ -73,6 +73,9 @@ module.exports = function(mongoose, db_opts) {
 
     var orig_dbpath = db_opts.dbpath;
     start_server(db_opts, function(mockgoose_uri) {
+        // see https://github.com/Mockgoose/Mockgoose/issues/4
+        if (typeof mockgoose_uri !== 'string') return;
+        
         // for now no errors
         mongoose.connect = function() {
             connect_type = "connect";
