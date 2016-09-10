@@ -73,9 +73,6 @@ module.exports = function(mongoose, db_opts) {
 
     var orig_dbpath = db_opts.dbpath;
     start_server(db_opts, function(mockgoose_uri) {
-        // see https://github.com/Mockgoose/Mockgoose/issues/4
-        if (typeof mockgoose_uri !== 'string') return;
-        
         // for now no errors
         mongoose.connect = function() {
             connect_type = "connect";
@@ -144,7 +141,7 @@ module.exports = function(mongoose, db_opts) {
                     auto_shutdown: true
                 };
 
-                var startResult = mongod.start_server(server_opts, start_server_callback);
+                var startResult = mongod.start_server(server_opts, function() {});
                 if (startResult === 0) {
                     debug('mongod.start_server connected');
                     var mock_uri = "mongodb://localhost:" + db_opts.port;
