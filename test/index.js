@@ -48,7 +48,7 @@ describe('User functions', function() {
     });
 
     it("unmock", function(done) {
-	mongoose.unmock(function() {
+	mongoose.unmock().then(function() {
 	    done();
 	});
     });
