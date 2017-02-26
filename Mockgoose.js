@@ -163,18 +163,20 @@ module.exports = function(mongoose, db_opts) {
         });
     };
 
-    mongoose.unmock = function(callback) {
+    mongoose.unmock = function() {
+        var deferUnmock = Q.defer();
         mongoose.disconnect(function() {
             delete mongoose.isMocked;
             connect_args[0] = orig_connect_uri;
             mongoose.connect = orig_connect;
             mongod.shutdown();
-            callback();
+            deferUnmock.resolve();
         });
+        return deferUnmock.promise;
     };
 
     mongoose.unmockAndReconnect = function(callback) {
-        mongoose.unmock(function() {
+        mongoose.unmock().then(function() {
             var overloaded_callback = function(err) {
                 callback(err);
             };
