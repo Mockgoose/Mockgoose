@@ -94,7 +94,7 @@ It is not relevant if you just want to use Mockgoose as a library in your projec
 ### Setup
 
 ```
-git clone git@github.com:mccormicka/Mockgoose.git
+git clone git@github.com:mockgoose/Mockgoose.git
 cd Mockgoose
 npm install
 npm test
