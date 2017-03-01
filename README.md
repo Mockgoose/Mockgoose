@@ -19,13 +19,13 @@ To install the latest official version, use NPM:
 You simply require Mongoose and Mockgoose and wrap Mongoose with Mockgoose.
 
 ```javascript
-	var mongoose = require('mongoose');
-	var Mockgoose = require('mockgoose').Mockgoose;
-	var mockgoose = new Mockgoose(mongoose);
+var mongoose = require('mongoose');
+var Mockgoose = require('mockgoose').Mockgoose;
+var mockgoose = new Mockgoose(mongoose);
 
-	mockgoose.prepareStorage().then(function() {
-		// mongoose connection		
-	});
+mockgoose.prepareStorage().then(function() {
+	// mongoose connection		
+});
 ```
 
 Once Mongoose has been wrapped by Mockgoose connect() will be intercepted by Mockgoose so that no MongoDB instance is created.
