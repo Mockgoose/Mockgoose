@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/mockgoose/Mockgoose.png?branch=master)](https://travis-ci.org/mockgoose/Mockgoose)
+[![Build Status](https://travis-ci.org/Mockgoose/Mockgoose.png?branch=master)](https://travis-ci.org/mockgoose/Mockgoose)
 
 Please Share on Twitter if you like #mockgoose
 <a href="https://twitter.com/intent/tweet?hashtags=mockgoose&amp;&amp;text=Check%20out%20this%20%23Mongoose%20%23MongoDB%20Mocking%20Framework&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fbit.ly%2F19gcHwm&amp;via=omnipitence" style="float:right">
-<img src="https://raw.github.com/mockgoose/Mockgoose/master/twittershare.png">
+<img src="https://raw.github.com/Mockgoose/Mockgoose/master/twittershare.png">
 </a>
 
 ## What is Mockgoose?
@@ -105,7 +105,7 @@ It is not relevant if you just want to use Mockgoose as a library in your projec
 ### Setup
 
 ```
-git clone git@github.com:mockgoose/Mockgoose.git
+git clone git@github.com:Mockgoose/Mockgoose.git
 cd Mockgoose
 npm install
 npm test
