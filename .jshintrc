@@ -5,7 +5,7 @@
     "eqeqeq": true,
     "forin": false,
     "immed": false,
-    "indent": 4,
+    "indent": 2,
     "latedef": false,
     "newcap": true,
     "noarg": true,

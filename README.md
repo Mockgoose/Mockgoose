@@ -19,9 +19,10 @@ To install the latest official version, use NPM:
 You simply require Mongoose and Mockgoose and wrap Mongoose with Mockgoose.
 
     var mongoose = require('mongoose');
-    var mockgoose = require('mockgoose');
+    var Mockgoose = require('mockgoose').Mockgoose;
+		var mockgoose = new Mockgoose(mongoose);
 
-    mockgoose(mongoose).then(function() {
+    mockgoose.prepareStorage().then(function() {
 		// mongoose connection		
 	});
 
@@ -33,10 +34,11 @@ Once Mongoose has been wrapped by Mockgoose connect() will be intercepted by Moc
 var Mongoose = require('mongoose').Mongoose;
 var mongoose = new Mongoose();
 
-var mockgoose = require('mockgoose');
+var Mockgoose = require('mockgoose').Mockgoose;
+var mockgoose = new Mockgoose(mongoose);
 
 before(function(done) {
-	mockgoose(mongoose).then(function() {
+	mockgoose.prepareStorage().then(function() {
 		mongoose.connect('mongodb://example.com/TestingDB', function(err) {
 			done(err);
 		});
@@ -51,7 +53,23 @@ describe('...', function() {
 });
 ```
 
-## Helper methods and variables
+ES6
+
+```javascript
+import * as mongoose from 'mongoose';
+import {Mockgoose} from 'mockgoose';
+
+let mockgoose: Mockgoose = new Mockgoose(mongoose);
+
+mockgoose.prepareStorage().then(() => {
+	mongoose.connect('mongodb://foobar/baz');
+	mongoose.connection.on('connected', () => {  
+	  console.log('db connection is now open');
+	}); 
+});
+```
+
+## Helper methods and variables (mockgoose.helper)
 
 ### reset(callback)
 Reset method will remove **ALL** of the collections from a temporary store,
@@ -59,7 +77,7 @@ note that this method is part of **mockgoose** object, and not defined under
 **mongoose**
 
 ```javascript
-mockgoose.reset(function() {
+mockgoose.helper.reset().then(() => {
 	done()
 });
 ```
@@ -68,19 +86,10 @@ mockgoose.reset(function() {
 Returns **TRUE** from **mongoose** object if Mockgoose is applied
 
 ```javascript
-if ( mongoose.isMocked === true ) {
+if ( mockgoose.helper.isMocked() === true ) {
   // mongoose object is mocked
 }
 ```
-
-## unmock(callback)
-Method that can be applied on **mongoose** to remove modifications added
-by **mockgoose**, it will perform disconnect on temporary store that was
-created, and **will not reconnect**
-
-## unmockAndReconnect(callback)
-Same as **unmock**, however it will reconnect to original URI that was
-passed during **connect**
 
 ## Development
 
