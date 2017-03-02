@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Mockgoose/Mockgoose.png?branch=master)](https://travis-ci.org/mockgoose/Mockgoose)
+[![Build Status](https://travis-ci.org/Mockgoose/Mockgoose.png?branch=master)](https://travis-ci.org/Mockgoose/Mockgoose)
 
 Please Share on Twitter if you like #mockgoose
 <a href="https://twitter.com/intent/tweet?hashtags=mockgoose&amp;&amp;text=Check%20out%20this%20%23Mongoose%20%23MongoDB%20Mocking%20Framework&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fbit.ly%2F19gcHwm&amp;via=omnipitence" style="float:right">
