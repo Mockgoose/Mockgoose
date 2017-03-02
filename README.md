@@ -12,8 +12,9 @@ Mockgoose provides test database by spinning up mongod on the back when mongoose
 ## Install
 To install the latest official version, use NPM:
 
-    npm install mockgoose --save-dev
-
+```bash
+npm install mockgoose --save-dev
+```
 
 ## Usage
 You simply require Mongoose and Mockgoose and wrap Mongoose with Mockgoose.
@@ -31,6 +32,16 @@ mockgoose.prepareStorage().then(function() {
 Once Mongoose has been wrapped by Mockgoose connect() will be intercepted by Mockgoose so that no MongoDB instance is created.
 
 ## Mocha
+
+Default mocha timeout is 2000ms, change it to two minutes.
+
+```bash
+mocha --timeout 120000
+```
+
+Same can be done by creating 'mocha.opts' file in your test directory with "--timeout 120000" entry.
+
+### Example
 
 ```javascript
 var Mongoose = require('mongoose').Mongoose;
@@ -55,7 +66,7 @@ describe('...', function() {
 });
 ```
 
-ES6
+## ES6 Example without mocha
 
 ```javascript
 import * as mongoose from 'mongoose';
@@ -104,7 +115,7 @@ It is not relevant if you just want to use Mockgoose as a library in your projec
 
 ### Setup
 
-```
+```bash
 git clone git@github.com:Mockgoose/Mockgoose.git
 cd Mockgoose
 npm install
