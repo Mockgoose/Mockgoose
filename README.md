@@ -111,7 +111,7 @@ It is not relevant if you just want to use Mockgoose as a library in your projec
 
 ### Pre-requisites
 
-* Node.js >= 0.10.0
+* Node.js >= 4
 
 ### Setup
 

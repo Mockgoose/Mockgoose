@@ -24,7 +24,7 @@
     "test": "mocha"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "dependencies": {
     "debug": "2.2.0",
