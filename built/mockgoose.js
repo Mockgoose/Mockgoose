@@ -5,7 +5,7 @@ var portfinder = require("portfinder");
 var os = require("os");
 var path = require("path");
 var fs = require("fs-extra");
-var mongodb_prebuilt_1 = require("../../mongodb-prebuilt");
+var mongodb_prebuilt_1 = require("mongodb-prebuilt");
 var mockgoose_helper_1 = require("./mockgoose-helper");
 var Mockgoose = (function () {
     function Mockgoose(mongooseObj) {
