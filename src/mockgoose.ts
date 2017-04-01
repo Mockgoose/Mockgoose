@@ -9,12 +9,14 @@ import {MockgooseHelper} from './mockgoose-helper';
 export class Mockgoose {
   
   helper: MockgooseHelper;
+  mongodHelper: MongodHelper = new MongodHelper();
   debug: any;
   mongooseObj: any;
   
   constructor(mongooseObj: any) {
     this.debug = Debug('Mockgoose');
-    this.helper = new MockgooseHelper(mongooseObj);
+    this.helper = new MockgooseHelper(mongooseObj, this);
+
     this.mongooseObj = mongooseObj;
     this.mongooseObj.mocked = true;
   }
@@ -34,8 +36,8 @@ export class Mockgoose {
         '--dbpath', dbPath
         ];
         this.debug(`@prepareStorage mongod args, ${mongodArgs}`);
-        let mongodHelper = new MongodHelper(mongodArgs);
-        mongodHelper.run().then(() => {
+        this.mongodHelper.mongoBin.commandArguments = mongodArgs;
+        this.mongodHelper.run().then(() => {
           let connectionString: string = this.getMockConnectionString(openPort);
           this.mockConnectCalls(connectionString);
           resolve();
@@ -46,7 +48,6 @@ export class Mockgoose {
       });
     });
   }
-
   
   getMockConnectionString(port: string): string {
     let connectionString: string = `mongodb://localhost:${port}`;

@@ -3,10 +3,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Debug = require('debug');
 var async_1 = require("async");
 var MockgooseHelper = (function () {
-    function MockgooseHelper(mongoose) {
+    function MockgooseHelper(mongoose, mockgoose) {
         this.mongoose = mongoose;
+        this.mockgoose = mockgoose;
         this.debug = Debug('MockgooseHelper');
     }
+    MockgooseHelper.prototype.setDbVersion = function (version) {
+        {
+            this.mockgoose.mongodHelper.mongoBin.mongoDBPrebuilt.mongoDBDownload.options.version = version;
+        }
+    };
     MockgooseHelper.prototype.reset = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
@@ -38,4 +44,4 @@ var MockgooseHelper = (function () {
     return MockgooseHelper;
 }());
 exports.MockgooseHelper = MockgooseHelper;
-//# sourceMappingURL=/Users/winfinit/workspace/rj/Mockgoose/mockgoose-helper.js.map
+//# sourceMappingURL=/Users/winfinit/workspace/personal/Mockgoose/mockgoose-helper.js.map

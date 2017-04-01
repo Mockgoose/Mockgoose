@@ -9,8 +9,9 @@ var mongodb_prebuilt_1 = require("mongodb-prebuilt");
 var mockgoose_helper_1 = require("./mockgoose-helper");
 var Mockgoose = (function () {
     function Mockgoose(mongooseObj) {
+        this.mongodHelper = new mongodb_prebuilt_1.MongodHelper();
         this.debug = Debug('Mockgoose');
-        this.helper = new mockgoose_helper_1.MockgooseHelper(mongooseObj);
+        this.helper = new mockgoose_helper_1.MockgooseHelper(mongooseObj, this);
         this.mongooseObj = mongooseObj;
         this.mongooseObj.mocked = true;
     }
@@ -29,8 +30,8 @@ var Mockgoose = (function () {
                     '--dbpath', dbPath
                 ];
                 _this.debug("@prepareStorage mongod args, " + mongodArgs);
-                var mongodHelper = new mongodb_prebuilt_1.MongodHelper(mongodArgs);
-                mongodHelper.run().then(function () {
+                _this.mongodHelper.mongoBin.commandArguments = mongodArgs;
+                _this.mongodHelper.run().then(function () {
                     var connectionString = _this.getMockConnectionString(openPort);
                     _this.mockConnectCalls(connectionString);
                     resolve();
@@ -96,4 +97,4 @@ var ConnectionWrapper = (function () {
     return ConnectionWrapper;
 }());
 exports.ConnectionWrapper = ConnectionWrapper;
-//# sourceMappingURL=/Users/winfinit/workspace/rj/Mockgoose/mockgoose.js.map
+//# sourceMappingURL=/Users/winfinit/workspace/personal/Mockgoose/mockgoose.js.map

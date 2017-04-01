@@ -3,9 +3,14 @@ import {each as asyncEach} from 'async';
 
 export class MockgooseHelper {
   debug: any;
-  constructor(public mongoose: any) {
+
+  constructor(public mongoose: any, public mockgoose: any) {
     this.debug = Debug('MockgooseHelper');
   }
+
+  setDbVersion(version: string) { {
+    this.mockgoose.mongodHelper.mongoBin.mongoDBPrebuilt.mongoDBDownload.options.version = version;
+  }}
   
   reset(): Promise<void>  {
     return new Promise<void>((resolve, reject) => {
