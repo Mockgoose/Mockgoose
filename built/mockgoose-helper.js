@@ -17,6 +17,10 @@ var MockgooseHelper = (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             async_1.each(_this.mongoose.connections, function (connection, callback) {
+                // check if it is mockgoose connection
+                if (!/mockgoose-temp-db-/.test(connection.name)) {
+                    return callback();
+                }
                 if (connection.readyState !== 1) {
                     return callback();
                 }

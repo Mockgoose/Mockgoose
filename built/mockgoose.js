@@ -7,6 +7,8 @@ var path = require("path");
 var fs = require("fs-extra");
 var mongodb_prebuilt_1 = require("mongodb-prebuilt");
 var mockgoose_helper_1 = require("./mockgoose-helper");
+//const uuidV4 = require('uuid/v4');
+var uuidV4 = require('uuid/v4');
 var Mockgoose = (function () {
     function Mockgoose(mongooseObj) {
         this.mongodHelper = new mongodb_prebuilt_1.MongodHelper();
@@ -43,7 +45,8 @@ var Mockgoose = (function () {
         });
     };
     Mockgoose.prototype.getMockConnectionString = function (port) {
-        var connectionString = "mongodb://localhost:" + port;
+        var dbName = 'mockgoose-temp-db-' + uuidV4();
+        var connectionString = "mongodb://localhost:" + port + "/" + dbName;
         return connectionString;
     };
     Mockgoose.prototype.mockConnectCalls = function (connection) {

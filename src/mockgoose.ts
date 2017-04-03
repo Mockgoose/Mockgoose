@@ -5,6 +5,8 @@ import * as path from 'path';
 import * as fs from 'fs-extra';
 import {MongodHelper} from 'mongodb-prebuilt';
 import {MockgooseHelper} from './mockgoose-helper';
+//const uuidV4 = require('uuid/v4');
+const uuidV4: any = require('uuid/v4');
 
 export class Mockgoose {
   
@@ -50,7 +52,8 @@ export class Mockgoose {
   }
   
   getMockConnectionString(port: string): string {
-    let connectionString: string = `mongodb://localhost:${port}`;
+    const dbName: string = 'mockgoose-temp-db-' + uuidV4();
+    const connectionString: string = `mongodb://localhost:${port}/${dbName}`;
     return connectionString;
   }
   
