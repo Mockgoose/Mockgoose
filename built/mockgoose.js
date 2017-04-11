@@ -100,4 +100,4 @@ var ConnectionWrapper = (function () {
     return ConnectionWrapper;
 }());
 exports.ConnectionWrapper = ConnectionWrapper;
-//# sourceMappingURL=/Users/winfinit/workspace/personal/Mockgoose/mockgoose.js.map
+//# sourceMappingURL=/home/afake/Git/Mockgoose/mockgoose.js.map

@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Debug = require('debug');
 var async_1 = require("async");
+var httpsProxyAgent = require('https-proxy-agent');
 var MockgooseHelper = (function () {
     function MockgooseHelper(mongoose, mockgoose) {
         this.mongoose = mongoose;
@@ -12,6 +13,11 @@ var MockgooseHelper = (function () {
         {
             this.mockgoose.mongodHelper.mongoBin.mongoDBPrebuilt.mongoDBDownload.options.version = version;
         }
+    };
+    MockgooseHelper.prototype.setProxy = function (proxy) {
+        this.mockgoose.mongodHelper.mongoBin.mongoDBPrebuilt.mongoDBDownload.options.http = {
+            agent: new httpsProxyAgent(proxy)
+        };
     };
     MockgooseHelper.prototype.reset = function () {
         var _this = this;
@@ -48,4 +54,4 @@ var MockgooseHelper = (function () {
     return MockgooseHelper;
 }());
 exports.MockgooseHelper = MockgooseHelper;
-//# sourceMappingURL=/Users/winfinit/workspace/personal/Mockgoose/mockgoose-helper.js.map
+//# sourceMappingURL=/home/afake/Git/Mockgoose/mockgoose-helper.js.map
