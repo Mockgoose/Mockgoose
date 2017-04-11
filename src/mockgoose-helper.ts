@@ -1,5 +1,6 @@
 const Debug: any = require('debug');
 import {each as asyncEach} from 'async';
+let httpsProxyAgent = require('https-proxy-agent');
 
 export class MockgooseHelper {
   debug: any;
@@ -8,9 +9,15 @@ export class MockgooseHelper {
     this.debug = Debug('MockgooseHelper');
   }
 
-  setDbVersion(version: string) { {
+  setDbVersion(version: string) {{
     this.mockgoose.mongodHelper.mongoBin.mongoDBPrebuilt.mongoDBDownload.options.version = version;
   }}
+
+  setProxy(proxy: string) {
+    this.mockgoose.mongodHelper.mongoBin.mongoDBPrebuilt.mongoDBDownload.options.http = {
+      agent: new httpsProxyAgent(proxy)
+    };
+  }
   
   reset(): Promise<void>  {
     return new Promise<void>((resolve, reject) => {
