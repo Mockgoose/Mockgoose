@@ -54,4 +54,4 @@ var MockgooseHelper = (function () {
     return MockgooseHelper;
 }());
 exports.MockgooseHelper = MockgooseHelper;
-//# sourceMappingURL=/home/afake/Git/Mockgoose/mockgoose-helper.js.map
+//# sourceMappingURL=/Users/winfinit/workspace/personal/Mockgoose/mockgoose-helper.js.map
