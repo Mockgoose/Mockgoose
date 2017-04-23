@@ -122,6 +122,26 @@ mockgoose.prepareStorage().then(() => {
 });
 ```
 
+### setProxy(proxy: string)
+Set proxy for downloading MongoDB release
+
+```javascript
+import * as mongoose from 'mongoose';
+import {Mockgoose} from 'mockgoose';
+
+let mockgoose: Mockgoose = new Mockgoose(mongoose);
+
+let proxy: string = process.env.http_proxy || 'http://example.com:8080';
+mockgoose.helper.setProxy(proxy);
+
+mockgoose.prepareStorage().then(() => {
+	mongoose.connect('mongodb://foobar/baz');
+	mongoose.connection.on('connected', () => {  
+	  console.log('db connection is now open');
+	}); 
+});
+```
+
 ## Development
 
 This section contains instructions for developers working on the Mockgoose codebase.
