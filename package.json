@@ -3,7 +3,7 @@
   "main": "built/mockgoose.js",
   "types": "built/mockgoose.d.ts",
   "description": "Mockgoose is an in memory database mock to allow for testing of applications that rely on Mongoose.",
-  "version": "7.3.1",
+  "version": "7.3.2",
   "author": {
     "name": "Anthony McCormick",
     "email": "anthony.mccormick@gmail.com"
@@ -31,7 +31,7 @@
     "debug": "2.2.0",
     "fs-extra": "^2.0.0",
     "https-proxy-agent": "1.0.0",
-    "mongodb-prebuilt": "^6.3.1",
+    "mongodb-prebuilt": "^6.3.2",
     "portfinder": "^1.0.13",
     "rimraf": "^2.6.1",
     "uuid": "^3.0.1"
