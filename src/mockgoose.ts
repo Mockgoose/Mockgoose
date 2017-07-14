@@ -44,7 +44,8 @@ export class Mockgoose {
           this.mockConnectCalls(connectionString);
           resolve();
         }, (e: any) => {
-          throw e;
+          resolve(e);
+          // throw e;
           // return this.prepareStorage();
         });
       });
