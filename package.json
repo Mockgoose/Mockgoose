@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "async": "2.1.5",
-    "debug": "2.2.0",
+    "debug": "3.1.0",
     "fs-extra": "^2.0.0",
     "https-proxy-agent": "1.0.0",
     "mongodb-prebuilt": "^6.3.3",
