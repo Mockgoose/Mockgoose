@@ -30,7 +30,7 @@
     "async": "2.1.5",
     "debug": "3.1.0",
     "fs-extra": "^2.0.0",
-    "https-proxy-agent": "1.0.0",
+    "https-proxy-agent": "2.1.1",
     "mongodb-prebuilt": "^6.3.3",
     "portfinder": "^1.0.13",
     "rimraf": "^2.6.1",
