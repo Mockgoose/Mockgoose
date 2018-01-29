@@ -38,7 +38,8 @@ var Mockgoose = (function () {
                     _this.mockConnectCalls(connectionString);
                     resolve();
                 }, function (e) {
-                    throw e;
+                    reject(e);
+                    // throw e;
                     // return this.prepareStorage();
                 });
             });
