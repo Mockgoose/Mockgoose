@@ -51,6 +51,11 @@ export class Mockgoose {
       });
     });
   }
+
+  shutdown(): void {
+    this.mongooseObj.disconnect()
+    this.mongodHelper.mongoBin.childProcess.kill('SIGINT')
+  }
   
   getMockConnectionString(port: string): string {
     const dbName: string = 'mockgoose-temp-db-' + uuidV4();
