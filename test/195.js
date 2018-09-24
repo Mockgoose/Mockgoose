@@ -10,11 +10,10 @@ describe('callback', function todoDescribe() {
   
   it('should return native connection object', function(done) {
   	mockgoose.prepareStorage().then(function() {
-    	    var connection = mongoose.createConnection('mongodb://localhost/mydb');
-            expect(typeof connection).to.equal('object'); 
-            expect(connection.constructor.name).to.equal('NativeConnection'); 
-            done();
-	});
+      var connection = mongoose.createConnection('mongodb://localhost/mydb', { useNewUrlParser: true });
+      expect(typeof connection).to.equal('object'); 
+      expect(connection.constructor.name).to.equal('NativeConnection'); 
+      done();
+	  });
   });
-
 });
