@@ -8,6 +8,9 @@
     "name": "Anthony McCormick",
     "email": "anthony.mccormick@gmail.com"
   },
+  "contributors": [
+    "Jonathon Hill <jhill9693@gmail.com>"
+  ],
   "keywords": [
     "mongodb",
     "mongoose",
