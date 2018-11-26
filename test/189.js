@@ -1,6 +1,5 @@
 "use strict";
 
-
 describe('callback', function todoDescribe() {
   var Mongoose = require('mongoose').Mongoose;
   var Mockgoose = require('../built/mockgoose').Mockgoose;
@@ -9,15 +8,15 @@ describe('callback', function todoDescribe() {
   
   before(function(done) {
   	mockgoose.prepareStorage().then(function() {
-    	mongoose.connect('mongodb://localhost/mydb', function() {
-    	    done(); 
+    	mongoose.connect('mongodb://localhost/mydb', { useNewUrlParser: true }, function() {
+        done(); 
     	});
-	});
+	  });
   });
 
   it('should call callback by reset', function(done) {
-    mockgoose.helper.reset().then(function(err) {
-       done();
+    mockgoose.helper.reset().then(function() {
+      done();
     });
   });
 
