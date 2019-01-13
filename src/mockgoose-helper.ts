@@ -23,8 +23,7 @@ export class MockgooseHelper {
     return new Promise<void>((resolve, reject) => {
       asyncEach(this.mongoose.connections, (connection: any, callback: Function) => {
         // check if it is mockgoose connection
-        const databaseName: string = connection.name || connection.db.databaseName;
-        if (!/mockgoose-temp-db-/.test(databaseName)) {
+        if (!/mockgoose-temp-db-/.test(connection.name)) {
           return callback();
         } 
         if ( connection.readyState !== 1 ) {
