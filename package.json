@@ -35,7 +35,7 @@
     "debug": "^4.0.1",
     "fs-extra": "^7.0.0",
     "https-proxy-agent": "^2.2.1",
-    "mongodb-prebuilt": "^6.3.6",
+    "mongodb-prebuilt": "^6.4.0",
     "portfinder": "^1.0.13",
     "rimraf": "^2.6.1",
     "uuid": "^3.0.1"

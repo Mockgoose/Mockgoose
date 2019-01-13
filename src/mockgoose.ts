@@ -63,7 +63,7 @@ export class Mockgoose {
         clearTimeout(timer);
         resolve(code);
       });
-      this.mongodHelper.mongoBin.childProcess.kill('SIGINT');
+      this.mongodHelper.stop();
     });
   }
   
