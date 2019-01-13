@@ -51,6 +51,21 @@ export class Mockgoose {
       });
     });
   }
+
+  shutdown(): Promise<number> {
+    return new Promise<number>((resolve, reject) => {
+      this.mongooseObj.disconnect();
+      let timer = setTimeout(()=> {
+        reject(new Error('Mockgoose timed out shutting down mongod'))
+      }, 10000);
+      this.mongodHelper.mongoBin.childProcess.on('exit', (code, signal) => {
+        this.debug('mongod has exited with %s on %s', code, signal) 
+        clearTimeout(timer);
+        resolve(code);
+      });
+      this.mongodHelper.stop();
+    });
+  }
   
   getMockConnectionString(port: string): string {
     const dbName: string = 'mockgoose-temp-db-' + uuidV4();

@@ -7,6 +7,7 @@ export declare class Mockgoose {
     mongooseObj: any;
     constructor(mongooseObj: any);
     prepareStorage(): Promise<void>;
+    shutdown(): Promise<number>;
     getMockConnectionString(port: string): string;
     mockConnectCalls(connection: string): void;
     getOpenPort(): Promise<number>;

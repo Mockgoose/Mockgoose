@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Debug = require('debug');
 var async_1 = require("async");
 var httpsProxyAgent = require('https-proxy-agent');
-var MockgooseHelper = (function () {
+var MockgooseHelper = /** @class */ (function () {
     function MockgooseHelper(mongoose, mockgoose) {
         this.mongoose = mongoose;
         this.mockgoose = mockgoose;
@@ -54,4 +54,4 @@ var MockgooseHelper = (function () {
     return MockgooseHelper;
 }());
 exports.MockgooseHelper = MockgooseHelper;
-//# sourceMappingURL=/Users/winfinit/workspace/personal/Mockgoose/mockgoose-helper.js.map
+//# sourceMappingURL=../src/mockgoose-helper.js.map

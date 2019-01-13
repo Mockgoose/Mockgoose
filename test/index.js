@@ -9,13 +9,17 @@ var mockgoose = new Mockgoose(mongoose);
 var Cat = mongoose.model('Cat', { name: String });
 
 describe('User functions', function() {
-    before(function(done) {
+	before(function(done) {
 		mockgoose.prepareStorage().then(function() {
-        	mongoose.connect('mongodb://127.0.0.1:27017/TestingDB', { useNewUrlParser: true }, function(err) {
-        	    done(err);
-        	}); 
+			mongoose.connect('mongodb://127.0.0.1:27017/TestingDB', { useNewUrlParser: true }, function(err) {
+				done(err);
+			}); 
 		});
-    });
+	});
+
+	after(function() {
+		return mockgoose.shutdown();
+	});
 
     it("isMocked", function(done) {
 		expect(mockgoose.helper.isMocked()).to.be.true;
