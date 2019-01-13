@@ -149,7 +149,7 @@ It is not relevant if you just want to use Mockgoose as a library in your projec
 
 ### Pre-requisites
 
-* Node.js >= 4
+* Node.js >= 6
 
 ### Setup
 

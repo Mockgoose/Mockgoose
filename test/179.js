@@ -1,7 +1,9 @@
-var should = require('chai').should();
+'use strict';
+
+require('chai').should();
 var expect = require('chai').expect;
 var Mongoose = require('mongoose').Mongoose;
-var mongoose = new Mongoose;
+var mongoose = new Mongoose();
 var Mockgoose = require('../built/mockgoose').Mockgoose;
 var mockgoose = new Mockgoose(mongoose);
 
@@ -9,11 +11,10 @@ var Cat = mongoose.model('Cat', {
     name: String
 });
 
-
 describe('issue 179', function() {
     before(function(done) {
 		mockgoose.prepareStorage().then(function() {
-        	mongoose.connect('mongodb://127.0.0.1:27017/TestingDB', function(err) {
+        	mongoose.connect('mongodb://127.0.0.1:27017/TestingDB', { useNewUrlParser: true }, function(err) {
         	    done(err);
         	});
 		});
@@ -28,8 +29,8 @@ describe('issue 179', function() {
     it("should create a cat foo", function(done) {
         Cat.create({
             name: "foo"
-        }, function(err, cat) {
-            expect(err).to.be.falsy;
+        }, function(err) {
+            expect(err).not.to.be.ok;
             done(err);
         });
     });
@@ -38,10 +39,9 @@ describe('issue 179', function() {
         Cat.findOne({
             name: "foo"
         }, function(err, cat) {
-            expect(err).to.be.falsy;
+            expect(err).not.to.be.ok;
             expect(cat).to.be.null;
             done(err);
         });
     });
-
 });
