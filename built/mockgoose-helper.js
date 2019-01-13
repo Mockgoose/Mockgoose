@@ -24,8 +24,7 @@ var MockgooseHelper = /** @class */ (function () {
         return new Promise(function (resolve, reject) {
             async_1.each(_this.mongoose.connections, function (connection, callback) {
                 // check if it is mockgoose connection
-                var databaseName = connection.name || connection.db.databaseName;
-                if (!/mockgoose-temp-db-/.test(databaseName)) {
+                if (!/mockgoose-temp-db-/.test(connection.name)) {
                     return callback();
                 }
                 if (connection.readyState !== 1) {
