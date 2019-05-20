@@ -1,3 +1,5 @@
+## Warning: This package has been deprecated! Consider using mongodb-memory-server instead.
+
 [![Build Status](https://travis-ci.org/Mockgoose/Mockgoose.svg?branch=master)](https://travis-ci.org/Mockgoose/Mockgoose)
 
 Please Share on Twitter if you like #mockgoose
